@@ -12,14 +12,11 @@ import Footer from '../components/Footer';
 export default function Home() {
   return (
     <Box>
-      <Appbar />
       <Hero />
       <Info />
       <About />
-      <BookAppointment />
-      <Reviews />
       <Doctors />
-      <Footer />
+      <BookAppointment />
     </Box>
   );
 }

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Doctor from '../assets/doctor-picture.png';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, Typography, IconButton } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import TodayIcon from '@mui/icons-material/Today';
 
-function Hero() {
+export default function Hero() {
   const navigate = useNavigate();
   const [goUp, setGoUp] = useState(false);
 
@@ -36,7 +36,8 @@ function Hero() {
     <Box
       sx={{
         position: 'relative',
-        pt: 10,
+        py: 10,
+        px: 3,
         background: 'linear-gradient(to right, #ECF2FF, #FBFCFF)',
       }}>
       <Box
@@ -46,7 +47,6 @@ function Hero() {
           justifyContent: 'center',
           alignItems: 'center',
           gap: '24px',
-          px: 7,
           flexDirection: { xs: 'column', md: 'row' },
         }}>
         <Box
@@ -88,9 +88,9 @@ function Hero() {
               letterSpacing: '.7px',
               lineHeight: '1.6rem',
             }}>
-            Çevrimiçi doktorlarla konuşun ve tıbbi tavsiye, çevrimiçi reçeteler
-            alın, dakikalar içinde yedekler ve tıbbi notlar. Talep üzerine
-            sağlık hizmeti parmaklarınızın ucunda hizmetler.
+            Çevrimiçi doktorlarla konuşun, tıbbi tavsiyeler alın, çevrimiçi
+            reçeteleri dakikalar içinde edinin ve tıbbi notları saklayın. Sağlık
+            hizmetleri parmaklarınızın ucunda.
           </Typography>
           <Button
             variant="contained"
@@ -102,6 +102,9 @@ function Hero() {
               fontSize: '18px',
               fontFamily: 'Rubik, sans-serif',
               letterSpacing: '.8px',
+              gap: 1,
+              display: 'flex',
+              textTransform: 'none',
               transition: 'all .4s ease',
               '&:hover': {
                 color: '#1A8EFD',
@@ -110,7 +113,7 @@ function Hero() {
               },
             }}
             onClick={handleBookAppointmentClick}>
-            <CalendarMonthIcon />
+            <TodayIcon />
             Randevu Al
           </Button>
           <Box
@@ -122,14 +125,18 @@ function Hero() {
               gap: { xs: '18px', md: '48px' },
             }}>
             {[
-              { value: '145k+', label: 'Hastaları Kabul Et' },
+              { value: '145k+', label: 'Hasta Kabul ' },
               { value: '50+', label: 'Uzman Doktorlar' },
               { value: '10+', label: 'Yılların Deneyimi' },
             ].map((stat, index) => (
-              <Box key={index} sx={{ textAlign: 'center' }}>
+              <Box
+                key={index}
+                sx={{
+                  textAlign: 'center',
+                }}>
                 <Typography
                   sx={{
-                    marginBottom: '8px',
+                    pb: '8px',
                     color: '#1A8EFD',
                     fontSize: { xs: '22px', md: '32px' },
                     fontWeight: 'bold',
@@ -139,7 +146,6 @@ function Hero() {
                 <Typography
                   sx={{
                     color: 'rgb(77, 75, 75)',
-                    fontFamily: 'Poppins, sans-serif',
                     fontSize: { xs: '16px', md: '22px' },
                     letterSpacing: '.7px',
                   }}>
@@ -191,5 +197,3 @@ function Hero() {
     </Box>
   );
 }
-
-export default Hero;

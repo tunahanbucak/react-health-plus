@@ -27,7 +27,7 @@ export default function Appbar() {
 
   const handleChatBtnClick = () => {
     if (!isButtonDisabled) {
-      toast.info('Experiencing high traffic, Please wait a moment.', {
+      toast.info('Yoğun trafik yaşanıyor, lütfen bir dakika bekleyin.', {
         position: 'top-center',
         onOpen: () => setIsButtonDisabled(true),
         onClose: () => setIsButtonDisabled(false),
@@ -36,12 +36,12 @@ export default function Appbar() {
   };
 
   const menuItems = [
-    { text: 'Anasayfa', link: '/' },
-    { text: 'Hizmetler', link: '#services' },
-    { text: 'Hakkında', link: '#about' },
-    { text: 'Yorumlar', link: '#reviews' },
-    { text: 'Doktorlar', link: '#doctors' },
-    { text: 'Contact', link: '#contact' },
+    { name: 'Anasayfa', href: '/' },
+    { name: 'Hizmetler', href: '#services' },
+    { name: 'Hakkında', href: '#about' },
+    { name: 'Yorumlar', href: '#reviews' },
+    { name: 'Doktorlar', href: '#doctors' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const renderMenuItems = (
@@ -51,7 +51,7 @@ export default function Appbar() {
       {menuItems.map((item, index) => (
         <ListItem button key={index} onClick={onClick}>
           <ListItemText>
-            <Link to={item.link}>{item.text}</Link>
+            <Link to={item.href}>{item.name}</Link>
           </ListItemText>
         </ListItem>
       ))}
@@ -87,13 +87,13 @@ export default function Appbar() {
               sx={{
                 color: '#1A8EFD',
                 letterSpacing: '6px',
-                fontSize: { xs: '20px', md: '30px' },
+                fontSize: '30px',
+                fontWeight: 'bold',
               }}>
-              Healty{' '}
+              Health
               <span
                 style={{
                   color: '#54de54',
-                  fontFamily: 'Cambria, sans-serif',
                   fontSize: '40px',
                   fontWeight: 'bold',
                 }}>
@@ -113,7 +113,7 @@ export default function Appbar() {
             {menuItems.slice(0, 5).map((item, index) => (
               <Button key={index} color="inherit">
                 <Link
-                  to={item.link}
+                  to={item.href}
                   style={{
                     textDecoration: 'none',
                     textTransform: 'none',
@@ -121,14 +121,14 @@ export default function Appbar() {
                     fontSize: '18px',
                     letterSpacing: '.8px',
                   }}>
-                  {item.text}
+                  {item.name}
                 </Link>
               </Button>
             ))}
           </Box>
           <Button
             sx={{
-              padding: { xs: '10px 16px', md: '14px 20px' },
+              padding: 1,
               color: 'white',
               border: '1px solid transparent',
               borderRadius: '28px',
@@ -140,6 +140,11 @@ export default function Appbar() {
               transition: 'all .4s ease',
               textTransform: 'none',
               display: { xs: 'none', md: 'flex' },
+              '&:hover': {
+                color: '#1A8EFD',
+                backgroundColor: 'transparent',
+                border: '1px solid #1A8EFD',
+              },
             }}
             disabled={isButtonDisabled}
             onClick={handleChatBtnClick}>
@@ -153,7 +158,7 @@ export default function Appbar() {
             onClick={toggleNav}>
             <MenuIcon
               sx={{
-                background: 'black',
+                color: 'black',
               }}
             />
           </IconButton>

@@ -15,12 +15,17 @@ export default function InformationCard({
   return (
     <Paper
       sx={{
-        height: 'auto',
+        height: '100%',
         border: '2px solid #d7d3d3',
         borderRadius: '12px',
         backgroundColor: 'white',
         position: 'relative',
         padding: '24px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease-in-out',
+        ':hover': {
+          backgroundColor: '#f0f0f0',
+        },
       }}>
       <IconButton
         sx={{
@@ -36,23 +41,21 @@ export default function InformationCard({
       <Typography
         variant="h6"
         sx={{
-          margin: '32px 0 40px 0',
+          padding: '12px 0 24px 0',
           color: 'black',
-          fontFamily: 'Poppins, sans-serif',
           fontSize: '28px',
           fontWeight: 'bold',
-          letterSpacing: '.8px',
+          textAlign: 'center',
         }}>
         {title}
       </Typography>
       <Typography
         sx={{
-          margin: '24px',
           color: 'rgb(77, 75, 75)',
-          fontFamily: 'Rubik, sans-serif',
+          padding: 2,
           fontSize: '18px',
-          letterSpacing: '.8px',
           lineHeight: '1.5rem',
+          textAlign: 'center',
         }}>
         {description}
       </Typography>
